@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tasks</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+  <h2>Task Manager</h2>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/projects">Projects</a>
+  <a href="/tasks">Tasks</a>
+  <a href="/logout">Logout</a>
+</nav>
+
+<div class="container">
+  <h1>Tasks</h1>
+
+  <% if (user.role === "Admin") { %>
+    <a class="btn" href="/tasks/new">Create Task</a>
+  <% } %>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Project</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+      <th>Due Date</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+
+    <% tasks.forEach(task => { %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.project ? task.project.title : "N/A" %></td>
+        <td><%= task.assignedTo ? task.assignedTo.name : "N/A" %></td>
+        <td><%= task.status %></td>
+        <td><%= task.dueDate.toDateString() %></td>
+
+        <td>
+          <form action="/tasks/<%= task._id %>/status" method="POST">
+            <select name="status">
+              <option value="Pending" <%= task.status === "Pending" ? "selected" : "" %>>Pending</option>
+              <option value="In Progress" <%= task.status === "In Progress" ? "selected" : "" %>>In Progress</option>
+              <option value="Completed" <%= task.status === "Completed" ? "selected" : "" %>>Completed</option>
+            </select>
+
+            <button type="submit">Update</button>
+          </form>
+        </td>
+
+        <td>
+          <% if (user.role === "Admin") { %>
+            <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+              <button class="danger">Delete</button>
+            </form>
+          <% } else { %>
+            -
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+  <h2>Task Manager</h2>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/projects">Projects</a>
+  <a href="/tasks">Tasks</a>
+  <a href="/logout">Logout</a>
+</nav>
+
+<div class="container">
+  <h1>Welcome, <%= user.name %></h1>
+  <p>Role: <%= user.role %></p>
+
+  <div class="cards">
+    <div class="card">Total <b><%= total %></b></div>
+    <div class="card">Pending <b><%= pending %></b></div>
+    <div class="card">In Progress <b><%= progress %></b></div>
+    <div class="card">Completed <b><%= completed %></b></div>
+    <div class="card">Overdue <b><%= overdue %></b></div>
+  </div>
+
+  <h2>Tasks</h2>
+
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Project</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+      <th>Due Date</th>
+    </tr>
+
+    <% tasks.forEach(task => { %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.project ? task.project.title : "N/A" %></td>
+        <td><%= task.assignedTo ? task.assignedTo.name : "N/A" %></td>
+        <td><%= task.status %></td>
+        <td><%= task.dueDate.toDateString() %></td>
+      </tr>
+    <% }) %>
+  </table>
+</div>
+
+</body>
+</html>

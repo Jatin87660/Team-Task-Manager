@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+nav {
+  background: #111827;
+  color: white;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav h2 {
+  margin-right: auto;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  padding: 30px;
+}
+
+.form-box {
+  width: 380px;
+  margin: 80px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px #ccc;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+textarea {
+  height: 80px;
+}
+
+button,
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 9px 14px;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.danger {
+  background: #dc2626;
+}
+
+.cards {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  width: 150px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #ddd;
+}
+
+.card b {
+  display: block;
+  font-size: 28px;
+  margin-top: 8px;
+}
+
+table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+th {
+  background: #111827;
+  color: white;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Task</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="form-box">
+  <h2>Create Task</h2>
+
+  <form action="/tasks" method="POST">
+    <input type="text" name="title" placeholder="Task Title" required>
+
+    <label>Project</label>
+    <select name="project" required>
+      <% projects.forEach(project => { %>
+        <option value="<%= project._id %>"><%= project.title %></option>
+      <% }) %>
+    </select>
+
+    <label>Assign To</label>
+    <select name="assignedTo" required>
+      <% members.forEach(member => { %>
+        <option value="<%= member._id %>"><%= member.name %></option>
+      <% }) %>
+    </select>
+
+    <label>Due Date</label>
+    <input type="date" name="dueDate" required>
+
+    <button type="submit">Create Task</button>
+  </form>
+
+  <p><a href="/tasks">Back</a></p>
+</div>
+
+</body>
+</html>

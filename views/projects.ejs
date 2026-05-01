@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+  <h2>Task Manager</h2>
+  <a href="/dashboard">Dashboard</a>
+  <a href="/projects">Projects</a>
+  <a href="/tasks">Tasks</a>
+  <a href="/logout">Logout</a>
+</nav>
+
+<div class="container">
+  <h1>Projects</h1>
+
+  <% if (user.role === "Admin") { %>
+    <a class="btn" href="/projects/new">Create Project</a>
+  <% } %>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Created By</th>
+      <th>Action</th>
+    </tr>
+
+    <% projects.forEach(project => { %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.description %></td>
+        <td><%= project.createdBy ? project.createdBy.name : "Admin" %></td>
+        <td>
+          <% if (user.role === "Admin") { %>
+            <form action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+              <button class="danger">Delete</button>
+            </form>
+          <% } else { %>
+            View
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</div>
+
+</body>
+</html>

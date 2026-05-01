@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="form-box">
+  <h2>Signup</h2>
+
+  <form action="/signup" method="POST">
+    <input type="text" name="name" placeholder="Enter Name" required>
+
+    <input type="email" name="email" placeholder="Enter Email" required>
+
+    <input type="password" name="password" placeholder="Enter Password" required>
+
+    <select name="role">
+      <option value="Member">Member</option>
+      <option value="Admin">Admin</option>
+    </select>
+
+    <button type="submit">Signup</button>
+  </form>
+
+  <p>Already have account? <a href="/login">Login</a></p>
+</div>
+
+</body>
+</html>
