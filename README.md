@@ -84,7 +84,7 @@ team-task-manager/
 ## 📌 Author
 
 **Jatin Agrawal**  
-B.Tech Final Year Student  
+ 
 
 ---
 
