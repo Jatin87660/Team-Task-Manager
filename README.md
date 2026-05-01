@@ -37,6 +37,8 @@ A simple full-stack web application to manage projects and tasks with role-based
 - **Authentication:** express-session + bcrypt  
 
 ---
+
+## 📂 Project Structure
 ```
 team-task-manager/
 │
@@ -91,4 +93,4 @@ B.Tech Final Year Student
 This is a simple assignment project focused on core functionality and clean implementation.
 
 
-## 📂 Project Structure
+
